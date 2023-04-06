@@ -2,8 +2,8 @@
   "name": "erc2771-wrapper",
   "version": "0.0.1",
   "description": "Wrap an evm transaction in to ERC2771 compatible format",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc"

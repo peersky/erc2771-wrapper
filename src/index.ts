@@ -10,13 +10,13 @@ const ForwardRequest = [
   { name: "data", type: "bytes" },
 ];
 
-interface DomainDefinition {
+export interface DomainDefinition {
   name: string;
   version: string;
   chainId: string;
   verifyingContract: string;
 }
-interface ForwardRequestObject {
+export interface ForwardRequestObject {
   value: "string";
   gas: "string";
   nonce: "string";
@@ -25,7 +25,7 @@ interface ForwardRequestObject {
   data: "string";
 }
 
-interface MetaTxTypeData {
+export interface MetaTxTypeData {
   types: { ForwardRequest: typeof ForwardRequest };
   domain: DomainDefinition;
 }

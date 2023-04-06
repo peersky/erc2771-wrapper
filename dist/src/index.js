@@ -1,3 +1,4 @@
+"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -7,8 +8,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { ethers } from "ethers";
-import forwarderABI from "../minimalForwarderAbi.json";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const ethers_1 = require("ethers");
+const minimalForwarderAbi_json_1 = __importDefault(require("../minimalForwarderAbi.json"));
 const ForwardRequest = [
     { name: "from", type: "address" },
     { name: "to", type: "address" },
@@ -17,7 +22,7 @@ const ForwardRequest = [
     { name: "nonce", type: "uint256" },
     { name: "data", type: "bytes" },
 ];
-export default class Wrapper {
+class Wrapper {
     constructor(domainDefinition, provider) {
         this.metaTxTypeData = {
             types: {
@@ -25,7 +30,7 @@ export default class Wrapper {
             },
             domain: Object.assign({}, domainDefinition),
         };
-        this.forwarderContract = new ethers.Contract(domainDefinition.verifyingContract, forwarderABI, provider);
+        this.forwarderContract = new ethers_1.ethers.Contract(domainDefinition.verifyingContract, minimalForwarderAbi_json_1.default, provider);
         this.provider = provider;
     }
     buildRequest(input) {
@@ -33,7 +38,7 @@ export default class Wrapper {
             const gasEstimate = yield this.provider.estimateGas({
                 to: input.to,
                 data: input.data,
-                value: ethers.utils.parseEther("0"),
+                value: ethers_1.ethers.utils.parseEther("0"),
             });
             let nonce = (yield this.forwarderContract.getNonce(input.from)).toString();
             return Object.assign({ value: "0", gas: gasEstimate.toString(), nonce }, input);
@@ -48,3 +53,4 @@ export default class Wrapper {
         });
     }
 }
+exports.default = Wrapper;
