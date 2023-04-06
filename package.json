@@ -1,6 +1,6 @@
 {
   "name": "erc2771-wrapper",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Wrap an evm transaction in to ERC2771 compatible format",
   "main": "dist/src/index.js",
   "types": "dist/src/index.d.ts",
@@ -26,7 +26,5 @@
     "type": "git",
     "url": "git@github.com:peersky/erc2771-wrapper.git",
     "directory": "/"
-  },
-  "homepage": "https://github.com/peersky/erc2771-wrapper/tree/main/README.md",
-  "readme": "README.md"
+  }
 }
