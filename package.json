@@ -1,6 +1,6 @@
 {
   "name": "erc2771-wrapper",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Wrap an evm transaction in to ERC2771 compatible format",
   "main": "dist/src/index.js",
   "types": "dist/src/index.d.ts",
