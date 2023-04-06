@@ -24,7 +24,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/peersky/ethers-cli.git",
+    "url": "https://github.com/peersky/erc2771-wrapper.git",
     "directory": "/"
   }
 }
